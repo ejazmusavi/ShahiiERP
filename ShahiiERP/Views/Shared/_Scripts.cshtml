@@ -1,0 +1,100 @@
+﻿<!-- Core JS -->
+<script src="~/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/jquery.min.js"></script>
+
+<!-- Icons -->
+<script src="~/js/feather.min.js"></script>
+
+<!-- Charts (if template included) -->
+<script src="~/js/apexcharts.min.js"></script>
+
+<!-- Datatables (if included) -->
+<script src="~/js/datatables.min.js"></script>
+
+<!-- Theme Switcher -->
+<script>
+    document.querySelectorAll('[data-theme]').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const mode = e.target.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', mode);
+        });
+    });
+</script>
+
+<!-- Template Custom -->
+<script src="~/js/custom.js"></script>
+<script>
+    (function() {
+
+        const root = document.documentElement;
+        const doc = document;
+
+        // Theme Mode
+        doc.querySelectorAll('[data-theme-mode]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const mode = e.target.dataset.themeMode;
+                root.setAttribute('data-theme-mode', mode);
+                localStorage.setItem('theme-mode', mode);
+            });
+        });
+
+        // Direction (LTR / RTL)
+        doc.querySelectorAll('[data-dir]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const dir = e.target.dataset.dir;
+                root.setAttribute('dir', dir);
+                localStorage.setItem('theme-dir', dir);
+            });
+        });
+
+        // Layout Width
+        doc.querySelectorAll('[data-layout]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const layout = e.target.dataset.layout;
+                root.setAttribute('data-layout', layout);
+                localStorage.setItem('theme-layout', layout);
+            });
+        });
+
+        // Menu Style
+        doc.querySelectorAll('[data-menu]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const menu = e.target.dataset.menu;
+                root.setAttribute('data-menu', menu);
+                localStorage.setItem('theme-menu', menu);
+            });
+        });
+
+        // Accent Colors
+        doc.querySelectorAll('[data-color]').forEach(box => {
+            box.addEventListener('click', e => {
+                const color = e.target.dataset.color;
+                root.style.setProperty('--primary', `var(--${color})`);
+                localStorage.setItem('theme-color', color);
+            });
+        });
+
+        // Reset button
+        doc.getElementById('reset-theme')?.addEventListener('click', () => {
+            localStorage.clear();
+            location.reload();
+        });
+
+        // Load State
+        const saved = {
+            mode: localStorage.getItem('theme-mode'),
+            dir: localStorage.getItem('theme-dir'),
+            layout: localStorage.getItem('theme-layout'),
+            menu: localStorage.getItem('theme-menu'),
+            color: localStorage.getItem('theme-color')
+        };
+
+        if(saved.mode) root.setAttribute('data-theme-mode', saved.mode);
+        if(saved.dir) root.setAttribute('dir', saved.dir);
+        if(saved.layout) root.setAttribute('data-layout', saved.layout);
+        if(saved.menu) root.setAttribute('data-menu', saved.menu);
+        if(saved.color) root.style.setProperty('--primary', `var(--${saved.color})`);
+
+    })();
+</script>
+

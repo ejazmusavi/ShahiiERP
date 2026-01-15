@@ -1,0 +1,298 @@
+﻿@{
+    ViewData["Title"] = "School ERP for Schools, Colleges & Universities | Modern Education Management System";
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+
+<head>
+@Html.Partial("_SEO")
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Main Theme Js -->
+    <script src="~/assets/js/authentication-main.js"></script>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="~/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="~/assets/css/styles.min.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="~/assets/css/icons.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/assets/libs/swiper/swiper-bundle.min.css">
+    <style>
+        .py-7 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body><!-- MARKETING NAV -->
+<header class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="/">Shahii ERP</a>
+
+        <nav class="ms-auto">
+            <a href="/onboarding/pricing" class="btn btn-primary me-2">Get Pricing</a>
+            <a href="/account/login" class="btn btn-outline-secondary">Sign In</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="py-8 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <h1 class="fw-bold display-5 mb-3">
+                    Run Your Entire School From One Platform
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Admissions, attendance, fees, payroll, exams, reporting, communication, and more —
+                    automated for schools, colleges, and universities.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="/onboarding/pricing" class="btn btn-primary btn-lg px-4">Start Free Trial</a>
+                    <a href="/account/login" class="btn btn-outline-secondary btn-lg px-4">Sign In</a>
+                </div>
+                <p class="text-muted small mt-2">No credit card required, no installation, no IT team needed.</p>
+            </div>
+            <div class="col-lg-6 text-center p-md-4">
+                    <img src="~/assets/images/hero-dashboard.svg" class="img-fluid rounded shadow" alt="School ERP Dashboard Preview">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM → SOLUTION -->
+<section class="py-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h2 class="fw-semibold mb-3">Manual operations are slowing you down</h2>
+                <p class="text-muted">
+                    Educational institutions waste thousands of hours managing spreadsheets, files, and manual workflows.
+                    This leads to errors, financial leakage, poor academic visibility, and frustrated parents.
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="p-4 border rounded bg-white h-100">
+                            <h5 class="fw-semibold">Fragmented Systems</h5>
+                            <p class="text-muted small mb-0">Admissions, finance, exams, and HR scattered across different tools.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-4 border rounded bg-white h-100">
+                            <h5 class="fw-semibold">No Real-Time Reporting</h5>
+                            <p class="text-muted small mb-0">Decision makers lack visibility into attendance, fees, and academic KPIs.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-4 border rounded bg-white h-100">
+                            <h5 class="fw-semibold">Human Errors & Delays</h5>
+                            <p class="text-muted small mb-0">Manual processes introduce inconsistencies and compliance risks.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-4 border rounded bg-white h-100">
+                            <h5 class="fw-semibold">Parent Communication Gaps</h5>
+                            <p class="text-muted small mb-0">Information doesn't reach parents on time, leading to dissatisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VALUE PROPOSITION -->
+<section class="py-7 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-3">One Platform. Endless Capabilities.</h2>
+        <p class="lead mb-4">Digitize your institution with powerful modules built specifically for education</p>
+    </div>
+</section>
+
+<!-- FEATURE MODULE GRID -->
+<section class="py-7">
+    <div class="container">
+        <div class="row g-4">
+            @foreach (var module in new[] {
+                        "Admissions", "Student Management", "Attendance", "Fees & Billing", "Exams & Results", "HR & Payroll",
+                        "Timetable", "Communication", "Library", "Transport", "Inventory", "Reports & Analytics"
+                        })
+            {
+                <div class="col-md-4">
+                    <div class="border p-4 rounded h-100 bg-white">
+                        <h5 class="fw-semibold mb-2">@module</h5>
+                        <p class="text-muted small mb-0">
+                            @module module fully integrated with the ERP and accessible across all departments.
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- PERSONA BENEFITS -->
+<section class="py-7 bg-light">
+    <div class="container">
+        <div class="mb-5 text-center">
+            <h2 class="fw-semibold">Built for every stakeholder</h2>
+            <p class="text-muted">Aligned to the needs of Administrators, Teachers, Parents, and Owners</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded border h-100">
+                    <h6 class="fw-bold mb-2">For Administrators</h6>
+                    <p class="small text-muted mb-0">Automate operations & improve departmental coordination</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded border h-100">
+                    <h6 class="fw-bold mb-2">For Teachers</h6>
+                    <p class="small text-muted mb-0">Mark attendance, upload results & communicate instantly</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded border h-100">
+                    <h6 class="fw-bold mb-2">For Owners / Management</h6>
+                    <p class="small text-muted mb-0">Access real-time analytics & institutional performance KPIs</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded border h-100">
+                    <h6 class="fw-bold mb-2">For Parents</h6>
+                    <p class="small text-muted mb-0">Stay informed with attendance, results, and fee reminders</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS / SOCIAL PROOF -->
+<section class="py-7 text-center">
+    <div class="container">
+        <h2 class="fw-semibold mb-4">Efficiency that pays off</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h3 class="fw-bold">80%+</h3>
+                <small class="text-muted">Reduction in manual paperwork</small>
+            </div>
+            <div class="col-md-4">
+                <h3 class="fw-bold">3x Faster</h3>
+                <small class="text-muted">Report & academic publishing</small>
+            </div>
+            <div class="col-md-4">
+                <h3 class="fw-bold">99.9%</h3>
+                <small class="text-muted">Billing accuracy & reconciliation</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-7 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-semibold mb-4">Trusted by Educational Institutions</h2>
+        <p class="text-muted mb-5">Feedback from school leaders and administrators</p>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="p-4 bg-white border rounded">
+                    <p class="text-muted small">
+                        “Managing attendance, fees, and academic performance has never been this organized.”
+                    </p>
+                    <h6 class="fw-bold mb-0">Principal, Private School</h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 bg-white border rounded">
+                    <p class="text-muted small">
+                        “Parents appreciate the transparency and real-time notifications.”
+                    </p>
+                    <h6 class="fw-bold mb-0">Vice Chancellor, College</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-7">
+    <div class="container">
+        <h2 class="fw-semibold text-center mb-4">Frequently Asked Questions</h2>
+        <div class="mx-auto" style="max-width:800px;">
+            <div class="mb-3">
+                <h6 class="fw-bold">Who is Shahii ERP for?</h6>
+                <p class="text-muted small mb-0">Schools, colleges, universities, academies & training institutes.</p>
+            </div>
+            <div class="mb-3">
+                <h6 class="fw-bold">Does it support multiple campuses?</h6>
+                <p class="text-muted small mb-0">Yes. Multi-campus & franchise support is built into the core.</p>
+            </div>
+            <div class="mb-3">
+                <h6 class="fw-bold">Is the data secure?</h6>
+                <p class="text-muted small mb-0">We offer enterprise-grade encryption, role-based access & audit logs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="py-7 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Ready to Digitize Your Institution?</h2>
+        <p class="mb-4">Start free — no installation, no maintenance, no hassle.</p>
+        <a href="/onboarding/pricing" class="btn btn-light btn-lg px-4">View Pricing</a>
+    </div>
+</section>
+
+<footer class="py-4 text-center text-muted small border-top">
+    © @(DateTime.Now.Year) Shahii ERP — All rights reserved.
+</footer>
+
+</body>
+
+</html>
+<script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@@type": "Question",
+          "name": "Who is Shahii ERP for?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Shahii ERP is used by schools, colleges, universities, academies and training institutes."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "Does it support multiple campuses?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Yes. Multi-campus and franchise support is built-in."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "Is the data secure?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Enterprise-grade encryption, access control and audit logging ensure data safety."
+          }
+        }
+      ]
+    }
+</script>
+

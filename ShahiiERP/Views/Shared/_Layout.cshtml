@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+
+    <title>
+        @(ViewBag.Title ?? "Dashboard")
+        — Shahii ERP
+        @if (ViewBag.TenantName != null)
+        {
+            @(" — " + ViewBag.TenantName)
+        }
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="~/icons/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/icons/remixicon.css" rel="stylesheet" />
+
+    <!-- Core Styles -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/style-dark.css" rel="stylesheet" />
+    <link href="~/css/style-rtl.css" rel="stylesheet" />
+
+    <!-- Theme Switcher -->
+    <link href="~/css/switcher.css" rel="stylesheet" />
+
+    <!-- Custom -->
+    <link href="~/css/custom.css" rel="stylesheet" />
+
+</head>
+<body>
+    @await Html.PartialAsync("_Loader")
+    @await Html.PartialAsync("_ThemeSwitcher")
+
+    <div class="page">
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content app-content">
+            @await Html.PartialAsync("_Header")
+
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+
+            @await Html.PartialAsync("_Footer")
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_Scripts")
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

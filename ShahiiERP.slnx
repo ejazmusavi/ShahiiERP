@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="ShahiiERP.API/ShahiiERP.API.csproj" />
+  <Project Path="ShahiiERP.Application/ShahiiERP.Application.csproj" />
+  <Project Path="ShahiiERP.Domain/ShahiiERP.Domain.csproj" />
+  <Project Path="ShahiiERP.Infrastructure/ShahiiERP.Infrastructure.csproj" />
+  <Project Path="ShahiiERP.Shared/ShahiiERP.Shared.csproj" />
+  <Project Path="ShahiiERP/ShahiiERP.Web.csproj" />
+</Solution>

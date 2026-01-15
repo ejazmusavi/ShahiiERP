@@ -1,0 +1,163 @@
+﻿@using ShahiiERP.Domain.Models.Onboarding
+@model ShahiiERP.Domain.Models.Onboarding.PricingVM
+@{
+
+    ViewData["Title"] = "Pricing";
+
+    Layout = "_LayoutPublic";
+}
+
+<div class="container mt-5">
+
+    <div class="row mb-5">
+        <div class="col-xl-12">
+            <h5 class="fw-semibold text-center">Simple Pricing For Everyone</h5>
+            <p class="text-muted text-center">Choose a plan that fits your institution. Scale as you grow.</p>
+
+            <div class="d-flex justify-content-center mb-4">
+                <ul class="nav nav-tabs mb-3 tab-style-6 bg-primary-transparent" id="pricingTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="monthly-tab" data-bs-toggle="tab"
+                                data-bs-target="#monthly-pane" type="button" role="tab">
+                            Monthly
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="yearly-tab" data-bs-toggle="tab"
+                                data-bs-target="#yearly-pane" type="button" role="tab">
+                            Yearly
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-xl-12">
+            <div class="tab-content" id="pricingTabContent">
+
+                @* ---------------- MONTHLY TAB ---------------- *@
+                <div class="tab-pane fade show active" id="monthly-pane" role="tabpanel">
+                    <div class="row">
+                        @foreach (var card in MapPlans(Model.MonthlyPlans))
+                        {
+                            @Html.Partial("_PricingCard", card)
+                        }
+                    </div>
+                </div>
+
+                @* ---------------- YEARLY TAB ---------------- *@
+                <div class="tab-pane fade" id="yearly-pane" role="tabpanel">
+                    <div class="row">
+                        @foreach (var card in MapPlans(Model.YearlyPlans))
+                        {
+                            @Html.Partial("_PricingCard", card)
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@functions {
+    public class PricingCard
+    {
+        public Guid PlanId { get; set; }
+        public string Name { get; set; } = default!;
+        public decimal Price { get; set; }
+        public string BillingLabel { get; set; } = default!;
+        public bool Highlight { get; set; }
+        public string Badge { get; set; } = default!;
+        public bool IsFree { get; set; }
+    }
+
+    private List<PricingCard> MapPlans(List<SubscriptionPlanVM> plans)
+    {
+        var result = new List<PricingCard>();
+
+        var free = plans.FirstOrDefault(x => x.IsFreeTier);
+        var paid = plans.Where(x => !x.IsFreeTier).OrderBy(x => x.Price).ToList();
+
+        // Free
+        if (free != null)
+        {
+            result.Add(new PricingCard
+            {
+                PlanId = free.Id,
+                Name = free.Name,
+                Price = free.Price,
+                BillingLabel = $"/ Per {free.BillingCycle}",
+                Badge = "For Individuals",
+                Highlight = false,
+                IsFree = true
+            });
+        }
+
+        if (paid.Count == 1)
+        {
+            // Single paid = duplicate into both business & enterprise
+            var p = paid[0];
+
+            result.Add(new PricingCard
+            {
+                PlanId = p.Id,
+                Name = "Business",
+                Price = p.Price,
+                BillingLabel = $"/ Per {p.BillingCycle}",
+                Badge = "For Business",
+                Highlight = true
+            });
+
+            result.Add(new PricingCard
+            {
+                PlanId = p.Id,
+                Name = "Enterprise",
+                Price = p.Price,
+                BillingLabel = $"/ Per {p.BillingCycle}",
+                Badge = "For Large Companies",
+                Highlight = false
+            });
+        }
+        else if (paid.Count >= 2)
+        {
+            // Team / Business / Enterprise
+            var p1 = paid[0];
+            var p2 = paid[1];
+            var p3 = paid.Count >= 3 ? paid[2] : p2;
+
+            result.Add(new PricingCard
+            {
+                PlanId = p1.Id,
+                Name = "Team",
+                Price = p1.Price,
+                BillingLabel = $"/ Per {p1.BillingCycle}",
+                Badge = "For Small Teams",
+                Highlight = false
+            });
+
+            result.Add(new PricingCard
+            {
+                PlanId = p2.Id,
+                Name = "Business",
+                Price = p2.Price,
+                BillingLabel = $"/ Per {p2.BillingCycle}",
+                Badge = "For Business",
+                Highlight = true
+            });
+
+            result.Add(new PricingCard
+            {
+                PlanId = p3.Id,
+                Name = "Enterprise",
+                Price = p3.Price,
+                BillingLabel = $"/ Per {p3.BillingCycle}",
+                Badge = "For Large Companies",
+                Highlight = false
+            });
+        }
+
+        return result;
+    }
+}

@@ -1,0 +1,86 @@
+﻿<header class="app-header header">
+    <div class="container-fluid">
+
+        <!-- Mobile Sidebar Toggle -->
+        <div class="d-flex">
+            <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
+
+            <!-- Logo -->
+            <a class="header-brand" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                <img src="~/images/logo.png" class="header-brand-img desktop-logo" alt="logo" />
+                <img src="~/images/logo-dark.png" class="header-brand-img desktop-logo-dark" alt="logo" />
+            </a>
+        </div>
+
+        <!-- Header Right Menu -->
+        <div class="header-right-icons ms-auto">
+
+            <div class="d-none d-lg-flex">
+                <!-- Full Screen Toggle -->
+                <div class="dropdown d-md-flex">
+                    <a class="nav-link icon full-screen-link">
+                        <i class="fe fe-maximize fullscreen-button"></i>
+                    </a>
+                </div>
+
+                <!-- Search Modal -->
+                <div class="dropdown d-md-flex">
+                    <a class="nav-link icon" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fe fe-search"></i>
+                    </a>
+                </div>
+
+                <!-- Notifications (Future: Role + Tenant Based) -->
+                <div class="dropdown d-md-flex">
+                    <a class="nav-link icon" data-bs-toggle="dropdown">
+                        <i class="fe fe-bell"></i>
+                        <span class="badge bg-danger side-badge">0</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <div class="dropdown-header bg-primary text-white">
+                            Notifications
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item  d-flex pb-3">
+                            <span>No notifications yet</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="dropdown profile-1">
+                <a class="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
+                    <img src="~/images/user.png" alt="profile-user" class="avatar  profile-user brround cover-image" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <div class="drop-heading text-center">
+                        <h5 class="fw-semibold mb-0">@User.Identity?.Name</h5>
+                        @if (ViewBag.TenantName != null)
+                        {
+                            <small class="text-muted">@ViewBag.TenantName</small>
+                        }
+                    </div>
+                    <div class="dropdown-divider m-0"></div>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                        <i class="fe fe-settings me-2"></i> Account Settings
+                    </a>
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout">
+                        <i class="fe fe-log-out me-2"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-3">
+                    <input type="text" class="form-control" placeholder="Search..." />
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

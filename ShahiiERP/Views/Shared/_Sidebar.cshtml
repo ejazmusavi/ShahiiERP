@@ -1,0 +1,139 @@
+﻿<aside class="app-sidebar sidebar-scroll">
+    <div class="main-sidebar-header">
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="header-brand">
+            <img src="~/images/logo.png" class="header-brand-img desktop-logo" alt="logo">
+            <img src="~/images/logo-dark.png" class="header-brand-img desktop-logo-dark" alt="logo">
+        </a>
+    </div>
+
+    <div class="main-sidemenu">
+        <ul class="side-menu">
+
+            <!-- DASHBOARD -->
+            <li class="slide">
+                <a class="side-menu__item" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                    <i class="bi bi-speedometer2"></i>
+                    <span class="side-menu__label">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- STUDENTS -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-people"></i>
+                    <span class="side-menu__label">Students</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Students" asp-action="Index">List</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Admission" asp-action="Index">Admissions</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Attendance" asp-action="Index">Attendance</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Exams" asp-action="Results">Results</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Timetable" asp-action="Index">Timetable</a></li>
+                </ul>
+            </li>
+
+            <!-- TEACHERS -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-person-badge"></i>
+                    <span class="side-menu__label">Teachers</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Teachers" asp-action="Index">List</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Attendance" asp-action="Teacher">Attendance</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Timetable" asp-action="Teacher">Schedules</a></li>
+                </ul>
+            </li>
+
+            <!-- ACADEMICS -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-journal-bookmark"></i>
+                    <span class="side-menu__label">Academics</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Classes" asp-action="Index">Classes & Sections</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Subjects" asp-action="Index">Subjects</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Exams" asp-action="Index">Exams</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Timetable" asp-action="Index">Timetables</a></li>
+                </ul>
+            </li>
+
+            <!-- FEES -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-currency-dollar"></i>
+                    <span class="side-menu__label">Fees & Finance</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Fees" asp-action="Index">Collect Fees</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Fees" asp-action="Invoices">Invoices</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Fees" asp-action="Reports">Reports</a></li>
+                </ul>
+            </li>
+
+            <!-- HR -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-briefcase"></i>
+                    <span class="side-menu__label">HR & Payroll</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="HR" asp-action="Employees">Employees</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="HR" asp-action="Payroll">Payroll</a></li>
+                </ul>
+            </li>
+
+            <!-- SUPPORT MODULES -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-box-seam"></i>
+                    <span class="side-menu__label">Support Modules</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Inventory" asp-action="Index">Inventory</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Transport" asp-action="Index">Transport</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Library" asp-action="Index">Library</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Hostel" asp-action="Index">Hostel</a></li>
+                </ul>
+            </li>
+
+            <!-- REPORTING -->
+            <li class="slide">
+                <a class="side-menu__item" asp-area="Admin" asp-controller="Reports" asp-action="Index">
+                    <i class="bi bi-file-bar-graph"></i>
+                    <span class="side-menu__label">Reporting</span>
+                </a>
+            </li>
+
+            <!-- COMMUNICATION -->
+            <li class="slide">
+                <a class="side-menu__item" asp-area="Admin" asp-controller="Notifications" asp-action="Index">
+                    <i class="bi bi-megaphone"></i>
+                    <span class="side-menu__label">Notifications</span>
+                </a>
+            </li>
+
+            <!-- USERS & ROLES -->
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                    <i class="bi bi-gear"></i>
+                    <span class="side-menu__label">Administration</span>
+                    <i class="angle fe fe-chevron-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles & Permissions</a></li>
+                    <li><a class="slide-item" asp-area="Admin" asp-controller="Settings" asp-action="Index">Settings</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</aside>

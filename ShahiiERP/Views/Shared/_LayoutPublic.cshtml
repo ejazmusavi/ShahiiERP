@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "School ERP for Schools, Colleges & Universities | Modern Education Management System";
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+
+<head>
+    @Html.Partial("_SEO")
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Main Theme Js -->
+    <script src="~/assets/js/authentication-main.js"></script>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="~/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="~/assets/css/styles.min.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="~/assets/css/icons.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/assets/libs/swiper/swiper-bundle.min.css">
+    <style>
+        .py-7 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- MARKETING NAV -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="/">Shahii ERP</a>
+
+            <nav class="ms-auto">
+                <a href="/onboarding/pricing" class="btn btn-primary me-2">Get Pricing</a>
+                <a href="/account/login" class="btn btn-outline-secondary">Sign In</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    @RenderBody()
+    <!-- FAQ -->
+    <section class="py-7">
+        <div class="container">
+            <h2 class="fw-semibold text-center mb-4">Frequently Asked Questions</h2>
+            <div class="mx-auto" style="max-width:800px;">
+                <div class="mb-3">
+                    <h6 class="fw-bold">Who is Shahii ERP for?</h6>
+                    <p class="text-muted small mb-0">Schools, colleges, universities, academies & training institutes.</p>
+                </div>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Does it support multiple campuses?</h6>
+                    <p class="text-muted small mb-0">Yes. Multi-campus & franchise support is built into the core.</p>
+                </div>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Is the data secure?</h6>
+                    <p class="text-muted small mb-0">We offer enterprise-grade encryption, role-based access & audit logs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-7 bg-primary text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Ready to Digitize Your Institution?</h2>
+            <p class="mb-4">Start free — no installation, no maintenance, no hassle.</p>
+            <a href="/onboarding/pricing" class="btn btn-light btn-lg px-4">View Pricing</a>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center text-muted small border-top">
+        © @(DateTime.Now.Year) Shahii ERP — All rights reserved.
+    </footer>
+    @await Html.PartialAsync("_Scripts")
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>
+
+
